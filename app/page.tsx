@@ -196,7 +196,7 @@ function MobileCard({ item }: { item: NewsItem }) {
         </p>
         <h3 className="text-2xl font-black mb-3 leading-tight tracking-tight text-left">{item.title}</h3>
         <p className="text-sm text-zinc-300 mb-6 line-clamp-2 font-medium leading-relaxed text-left">{item.excerpt}</p>
-        <span className={`px-6 py-3 rounded-xl font-bold text-xs uppercase text-left ${item.isVideo ? 'bg-red-600 text-white' : 'bg-white text-black'}`}>{item.isVideo ? '▶ Oglądaj' : 'Do czytania'}</span>
+        <span className={`px-6 py-3 rounded-xl font-bold text-xs uppercase text-left ${item.isVideo ? 'bg-red-600 text-white' : 'bg-white text-black'}`}>{item.isVideo ? '▶ Oglądaj' : 'Czytaj'}</span>
       </div>
     </a>
   );
