@@ -131,7 +131,7 @@ export default async function Home(props: any) {
           <nav className="flex gap-2 w-full md:w-auto overflow-x-auto no-scrollbar justify-start md:justify-end pb-2 md:pb-0 px-1 snap-x">
             <Link href="/?cat=wszystko" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'wszystko' ? 'bg-blue-400 text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Wszystko</Link>
             <Link href="/?cat=ogladanie" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'ogladanie' ? 'bg-red-600 text-white' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do oglądania</Link>
-            <Link href="/?cat=czytanie" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'czytanie' ? 'bg-white text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Czytaj...</Link>
+            <Link href="/?cat=czytanie" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'czytanie' ? 'bg-white text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do czytania</Link>
           </nav>
         </div>
       </header>
