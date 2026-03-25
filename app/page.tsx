@@ -126,10 +126,10 @@ export default async function Home(props: any) {
             {/* Tutaj ładuje się Twoje SVG */}
             <img src="/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
           </div>
-          <nav className="flex gap-2 overflow-x-auto no-scrollbar max-w-full">
-            <Link href="/?cat=wszystko" className={`px-5 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'wszystko' ? 'bg-blue-400 text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Wszystko</Link>
-            <Link href="/?cat=ogladanie" className={`px-5 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'ogladanie' ? 'bg-red-600 text-white' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do oglądania</Link>
-            <Link href="/?cat=czytanie" className={`px-5 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'czytanie' ? 'bg-white text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do czytania</Link>
+        <nav className="flex gap-2 overflow-x-auto no-scrollbar max-w-full items-center">
+            <Link href="/?cat=wszystko" className={`whitespace-nowrap px-5 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'wszystko' ? 'bg-blue-400 text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Wszystko</Link>
+            <Link href="/?cat=ogladanie" className={`whitespace-nowrap px-5 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'ogladanie' ? 'bg-red-600 text-white' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do oglądania</Link>
+            <Link href="/?cat=czytanie" className={`whitespace-nowrap px-5 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'czytanie' ? 'bg-white text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do czytania</Link>
           </nav>
         </div>
       </header>
