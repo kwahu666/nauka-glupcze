@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     siteName: "Nauka, Głupcze!",
     images: [
       {
-        url: "/og-image.png", // To nasza grafika do udostępniania
+        // TUTAJ ZMIANA: Pełny, twardy link do obrazka
+        url: "https://naukaglupcze.pl/og-image.png", 
         width: 1200,
         height: 630,
         alt: "Nauka Głupcze - Karta informacyjna",
@@ -25,10 +26,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nauka, Głupcze! - Agregator Naukowy",
     description: "Najświeższe wiadomości ze świata nauki i kosmosu.",
-    images: ["/og-image.png"],
+    // TUTAJ ZMIANA: Pełny link do obrazka dla Twittera/X
+    images: ["https://naukaglupcze.pl/og-image.png"],
   },
   icons: {
-    icon: "/logo.svg", // Twoje wektorowe logo w zakładce przeglądarki
+    icon: "/logo.svg", 
   },
 };
 
