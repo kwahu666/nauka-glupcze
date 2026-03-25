@@ -123,14 +123,14 @@ export default async function Home(props: any) {
       {/* UKRYTY CHECKBOX STERUJĄCY MENU */}
       <input type="checkbox" id="menu-toggle" className="peer hidden" />
 
-      {/* GÓRNY PASEK - przezroczysty, logo + hamburger */}
-      <header className="absolute top-0 left-0 w-full z-30 bg-gradient-to-b from-black/90 via-black/40 to-transparent p-4 md:p-6 pointer-events-none flex justify-between items-start">
+    {/* GÓRNY PASEK - przezroczysty, logo + hamburger */}
+      <header className="absolute top-0 left-0 w-full z-30 bg-gradient-to-b from-black/90 via-black/40 to-transparent p-4 md:p-6 pointer-events-none flex justify-between items-center">
         <Link href="/" className="h-8 md:h-12 w-auto flex-shrink-0 cursor-pointer transition-transform hover:scale-105 pointer-events-auto">
           <img src="/logo.svg" alt="Logo" className="h-full w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
         </Link>
 
         {/* PRZYCISK MENU */}
-        <label htmlFor="menu-toggle" className="cursor-pointer pointer-events-auto p-2.5 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 hover:bg-white/10 transition shadow-lg mt-1 md:mt-0">
+        <label htmlFor="menu-toggle" className="cursor-pointer pointer-events-auto p-2.5 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 hover:bg-white/10 transition shadow-lg">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
       </header>
