@@ -184,7 +184,7 @@ function DesktopCard({ item }: { item: NewsItem }) {
         <p className="text-sm text-zinc-400 leading-relaxed line-clamp-4 mb-4 text-left">{item.excerpt}</p>
         <div className="mt-auto pt-4 border-t border-zinc-800 flex justify-between items-center text-left">
            <p className="text-[10px] text-zinc-500 font-medium uppercase tracking-widest text-left">{item.pubDate ? new Date(item.pubDate).toLocaleDateString('pl-PL') : ''}</p>
-           <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded text-left ${item.isVideo ? 'bg-red-950 text-red-500' : 'bg-zinc-800 text-zinc-300'}`}>{item.isVideo ? 'Wideo' : 'Tekst'}</span>
+           <span className={`text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded text-left ${item.isVideo ? 'bg-red-950 text-red-500' : 'bg-zinc-800 text-zinc-300'}`}>{item.isVideo ? 'Wideo' : 'Czytaj...'}</span>
         </div>
       </div>
     </a>
