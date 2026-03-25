@@ -1,9 +1,35 @@
 import type { Metadata } from "next";
-import "./globals.css"; // To ta linijka ładuje całą magię kolorów i układu!
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nauka Głupcze",
-  description: "Najlepszy agregator naukowy",
+  title: "Nauka, Głupcze! - Najlepszy agregator naukowy",
+  description: "Wiadomości ze świata nauki, kosmosu i technologii w jednym miejscu. Bądź na bieżąco – czytaj artykuły i oglądaj najnowsze materiały wideo.",
+  metadataBase: new URL("https://naukaglupcze.pl"),
+  openGraph: {
+    title: "Nauka, Głupcze! - Agregator Naukowy",
+    description: "Wiadomości ze świata nauki, kosmosu i technologii w jednym miejscu. Bądź na bieżąco z najnowszymi odkryciami.",
+    url: "https://naukaglupcze.pl",
+    siteName: "Nauka, Głupcze!",
+    images: [
+      {
+        url: "/og-image.png", // To nasza grafika do udostępniania
+        width: 1200,
+        height: 630,
+        alt: "Nauka Głupcze - Karta informacyjna",
+      },
+    ],
+    locale: "pl_PL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nauka, Głupcze! - Agregator Naukowy",
+    description: "Najświeższe wiadomości ze świata nauki i kosmosu.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/logo.svg", // Twoje wektorowe logo w zakładce przeglądarki
+  },
 };
 
 export default function RootLayout({
