@@ -120,13 +120,14 @@ export default async function Home(props: any) {
   return (
     <main className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
       
-    <header className="sticky top-0 z-30 bg-black/95 backdrop-blur-md border-b border-zinc-900 p-4 md:p-6 shadow-2xl">
+   <header className="sticky top-0 z-30 bg-black/95 backdrop-blur-md border-b border-zinc-900 p-4 md:p-6 shadow-2xl">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="h-8 md:h-10 w-auto flex-shrink-0">
-            <img src="/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
-          </div>
           
-          {/* Poprawiony pasek nawigacji */}
+          {/* Zamieniliśmy <div> na <Link>, żeby logo było klikalne */}
+          <Link href="/" className="h-8 md:h-10 w-auto flex-shrink-0 cursor-pointer transition-transform hover:scale-105">
+            <img src="/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
+          </Link>
+          
           <nav className="flex gap-2 w-full md:w-auto overflow-x-auto no-scrollbar justify-start md:justify-end pb-2 md:pb-0 px-1 snap-x">
             <Link href="/?cat=wszystko" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'wszystko' ? 'bg-blue-400 text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Wszystko</Link>
             <Link href="/?cat=ogladanie" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'ogladanie' ? 'bg-red-600 text-white' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do oglądania</Link>
