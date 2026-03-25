@@ -118,33 +118,63 @@ export default async function Home(props: any) {
   const filteredItems = allItems.filter(item => currentCategory === 'wszystko' || item.category === currentCategory);
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
+    <main key={currentCategory} className="min-h-screen bg-black text-white font-sans overflow-x-hidden relative">
       
-   <header className="sticky top-0 z-30 bg-black/95 backdrop-blur-md border-b border-zinc-900 p-4 md:p-6 shadow-2xl">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          
-          {/* Zamieniliśmy <div> na <Link>, żeby logo było klikalne */}
-          <Link href="/" className="h-8 md:h-10 w-auto flex-shrink-0 cursor-pointer transition-transform hover:scale-105">
-            <img src="/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
-          </Link>
-          
-          <nav className="flex gap-2 w-full md:w-auto overflow-x-auto no-scrollbar justify-start md:justify-end pb-2 md:pb-0 px-1 snap-x">
-            <Link href="/?cat=wszystko" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'wszystko' ? 'bg-blue-400 text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Wszystko</Link>
-            <Link href="/?cat=ogladanie" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'ogladanie' ? 'bg-red-600 text-white' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do oglądania</Link>
-            <Link href="/?cat=czytanie" className={`snap-start flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider transition ${currentCategory === 'czytanie' ? 'bg-white text-black' : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'}`}>Do czytania</Link>
-          </nav>
-        </div>
+      {/* UKRYTY CHECKBOX STERUJĄCY MENU */}
+      <input type="checkbox" id="menu-toggle" className="peer hidden" />
+
+      {/* GÓRNY PASEK - przezroczysty, logo + hamburger */}
+      <header className="absolute top-0 left-0 w-full z-30 bg-gradient-to-b from-black/90 via-black/40 to-transparent p-4 md:p-6 pointer-events-none flex justify-between items-start">
+        <Link href="/" className="h-8 md:h-12 w-auto flex-shrink-0 cursor-pointer transition-transform hover:scale-105 pointer-events-auto">
+          <img src="/logo.svg" alt="Logo" className="h-full w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />
+        </Link>
+
+        {/* PRZYCISK MENU */}
+        <label htmlFor="menu-toggle" className="cursor-pointer pointer-events-auto p-2.5 bg-black/40 backdrop-blur-md rounded-xl border border-white/10 hover:bg-white/10 transition shadow-lg mt-1 md:mt-0">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </label>
       </header>
 
-      {/* WIDOK MOBILE */}
-      <div key={currentCategory} className="md:hidden flex h-[calc(100vh-140px)] w-full overflow-x-scroll snap-x snap-mandatory gap-4 px-4 no-scrollbar">
+      {/* BOCZNY PANEL Z KATEGORIAMI */}
+      <nav className="fixed top-0 right-0 h-full w-72 bg-zinc-950/95 backdrop-blur-xl border-l border-white/10 z-50 transform translate-x-full peer-checked:translate-x-0 transition-transform duration-300 ease-out flex flex-col p-6 shadow-2xl">
+        <div className="flex justify-end mb-10">
+          <label htmlFor="menu-toggle" className="cursor-pointer p-2 bg-white/5 rounded-full hover:bg-white/10 transition">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </label>
+        </div>
+        
+        <div className="flex flex-col gap-3">
+          <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 px-2">Filtruj zawartość</p>
+          
+          <Link href="/?cat=wszystko" className={`flex items-center gap-4 px-4 py-4 rounded-2xl font-bold uppercase tracking-wider transition ${currentCategory === 'wszystko' ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20' : 'text-zinc-400 hover:bg-white/5 border border-transparent'}`}>
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            Wszystko
+          </Link>
+          
+          <Link href="/?cat=ogladanie" className={`flex items-center gap-4 px-4 py-4 rounded-2xl font-bold uppercase tracking-wider transition ${currentCategory === 'ogladanie' ? 'bg-red-500/10 text-red-500 border border-red-500/20' : 'text-zinc-400 hover:bg-white/5 border border-transparent'}`}>
+            <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"></path></svg>
+            Do oglądania
+          </Link>
+          
+          <Link href="/?cat=czytanie" className={`flex items-center gap-4 px-4 py-4 rounded-2xl font-bold uppercase tracking-wider transition ${currentCategory === 'czytanie' ? 'bg-white/10 text-white border border-white/20' : 'text-zinc-400 hover:bg-white/5 border border-transparent'}`}>
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            Do czytania
+          </Link>
+        </div>
+      </nav>
+
+      {/* TŁO OVERLAY PO OTWARCIU MENU */}
+      <label htmlFor="menu-toggle" className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity duration-300 cursor-pointer"></label>
+
+      {/* WIDOK MOBILE - Kafelki przesunięte do góry */}
+      <div className="md:hidden flex h-[100dvh] w-full overflow-x-scroll snap-x snap-mandatory gap-4 px-4 no-scrollbar pt-20 pb-8">
         {filteredItems.map((item, index) => (
           <MobileCard key={index} item={item} />
         ))}
       </div>
 
-      {/* WIDOK DESKTOP */}
-      <div className="hidden md:grid md:grid-cols-3 gap-8 p-8 max-w-7xl mx-auto">
+      {/* WIDOK DESKTOP - Kafelki przesunięte do góry */}
+      <div className="hidden md:grid md:grid-cols-3 gap-8 px-8 pt-28 pb-12 max-w-7xl mx-auto">
         {filteredItems.map((item, index) => (
           <DesktopCard key={index} item={item} />
         ))}
